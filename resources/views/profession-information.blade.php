@@ -13,13 +13,21 @@
 				<hr class="mt-[-1px] border-0 border-b border-black"/>
 			</div>
 			<div class="profession-tab mb-[34px] flex-col gap-[10px] flex">
-				<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">Satbayev University (Алматы) 1</div>
+				@foreach($profession->universities as $univercity)
+					@if($univercity->type == 1)
+						<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">{{ $univercity->full_info }}</div>
+					@endif
+				@endforeach
 			</div>
 			<div class="profession-tab mb-[34px] flex-col gap-[10px] hidden">
-				<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">Satbayev University (Алматы) 2</div>
+				@foreach($profession->universities as $univercity)
+					@if($univercity->type == 2)
+						<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">{{ $univercity->full_info }}</div>
+					@endif
+				@endforeach
 			</div>
 			<div class="profession-tab mb-[34px] flex-col gap-[10px] hidden">
-				<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">Satbayev University (Алматы) 3</div>
+				<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">JavaScript. Профессиональная разработка веб-интерфейсов</div>
 			</div>
 		</div>
 	</section>

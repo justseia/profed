@@ -10,11 +10,11 @@
 		<input type="password" placeholder="Подвердите пароль" class="mb-[15px] w-full appearance-none border border-[#ACACAC] p-[10px] text-[16px] text-gray-700 placeholder:text-[16px] placeholder:font-light focus:outline-none" />
 		<div class="mb-[22px] flex justify-between">
 			<div class="flex items-center">
-				<input name="type" type="radio" class="mr-[10px] h-[18px] w-[18px] cursor-pointer appearance-none border border-[#ACACAC] checked:bg-gray-400 focus:outline-none" />
+				<input name="type" type="radio" value="1" class="mr-[10px] h-[18px] w-[18px] cursor-pointer appearance-none border border-[#ACACAC] checked:bg-gray-400 focus:outline-none" />
 				<span class="text-[16px]">Школьник</span>
 			</div>
 			<div class="flex items-center">
-				<input name="type" type="radio" class="mr-[10px] h-[18px] w-[18px] cursor-pointer appearance-none border border-[#ACACAC] checked:bg-gray-400 focus:outline-none" />
+				<input name="type" type="radio" value="2" class="mr-[10px] h-[18px] w-[18px] cursor-pointer appearance-none border border-[#ACACAC] checked:bg-gray-400 focus:outline-none" />
 				<span class="text-[16px]">Эксперт</span>
 			</div>
 		</div>

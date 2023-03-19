@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Test extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $table = 'tests';
     protected $guarded = [];
@@ -16,6 +16,5 @@ class Test extends Model
     protected $hidden = [
         'updated_at',
         'created_at',
-        'deleted_at'
     ];
 }

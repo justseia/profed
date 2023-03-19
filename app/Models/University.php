@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class University extends Model
 {
     use HasFactory;
+
+    protected $table = 'universities';
+    protected $guarded = [];
+
+    protected $hidden = [
+        'updated_at',
+        'created_at',
+    ];
 }

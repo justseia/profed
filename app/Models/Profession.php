@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Profession extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $table = 'professions';
     protected $guarded = [];
@@ -16,6 +16,10 @@ class Profession extends Model
     protected $hidden = [
         'updated_at',
         'created_at',
-        'deleted_at'
     ];
+
+    public function universities()
+    {
+        return $this->hasMany(University::class);
+    }
 }

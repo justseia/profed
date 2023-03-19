@@ -10,6 +10,7 @@ class ShowController extends Controller
 {
     public function __invoke(Profession $profession)
     {
+        $profession = Profession::where('id', $profession->id)->with('universities')->first();
         return view('profession-information')
             ->with(compact('profession'));
     }

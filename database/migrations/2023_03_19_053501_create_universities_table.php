@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
+            $table->text('full_info');
+            $table->integer('type');
+            $table->integer('profession_id');
             $table->timestamps();
         });
     }
