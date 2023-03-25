@@ -9,6 +9,6 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        return view('404');
+        return view('about');
     }
 }
