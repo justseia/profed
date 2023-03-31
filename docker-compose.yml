@@ -1,14 +1,26 @@
 version: "3"
 
 services:
+    certbot:
+        image: certbot/certbot:latest
+        container_name: certbot
+        depends_on:
+            - nginx
+        volumes:
+            - ./:/var/www
+            - ./etc-letsencrypt:/etc/letsencrypt
+        command: certonly --webroot --webroot-path=/var/www --email profed@gmail.com  --agree-tos --no-eff-email -d profed.kz
+
     nginx:
         image: nginx:latest
         restart: always
         volumes:
             - ./:/var/www
             - ./_docker/nginx/conf.d:/etc/nginx/conf.d
+            - ./etc-letsencrypt:/etc/letsencrypt
         ports:
             - 80:80
+            - 443:443
         depends_on:
             - app
         container_name: profed_nginx
@@ -31,6 +43,15 @@ services:
             MYSQL_DATABASE: profed
             MYSQL_ROOT_PASSWORD: root
         ports:
-            - 8001:3306
+            - 3306:3306
         command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
         container_name: profed_db
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOST: db
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - 8080:80
+        container_name: profed_phpmyadmin

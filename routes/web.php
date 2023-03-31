@@ -30,6 +30,7 @@ Route::get('/courses/purchase/{course}/buy', \App\Http\Controllers\Course\BuyCou
 Route::get('/profile', \App\Http\Controllers\Profile\IndexController::class)->name('profile.index');
 Route::post('/profile', \App\Http\Controllers\Profile\StoreController::class)->name('profile.store');
 Route::get('/profile/expert', \App\Http\Controllers\Profile\ExpertController::class)->name('expert.profile.index');
+Route::get('/profile/expert/connect', \App\Http\Controllers\Profile\ExpertConnectController::class)->name('expert.profile.connect');
 
 Route::get('/enroll/expert/{expert}', \App\Http\Controllers\Profile\ExpertController::class)->name('expert.enroll.index');
 
