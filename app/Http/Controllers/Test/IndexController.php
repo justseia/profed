@@ -10,6 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        return view('test');
+        $tests = Test::all();
+        return view('test')->with(compact('tests'));
     }
 }
