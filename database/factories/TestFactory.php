@@ -16,8 +16,13 @@ class TestFactory extends Factory
      */
     public function definition()
     {
+        $body = [
+            'body' => ['body', 'body', 'body', 'body'],
+        ];
+
         return [
-            'name' => fake()->name(),
+            'question' => fake()->name(),
+            'body' => json_encode($body),
         ];
     }
 }

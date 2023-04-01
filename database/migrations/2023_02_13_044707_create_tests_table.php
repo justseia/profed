@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('question');
+            $table->json('body');
             $table->timestamps();
         });
     }
