@@ -27,7 +27,7 @@
 				@endforeach
 			</div>
 			<div class="profession-tab mb-[34px] flex-col gap-[10px] hidden">
-				<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">JavaScript. Профессиональная разработка веб-интерфейсов</div>
+{{--				<div class="rounded-[10px] border border-black px-[45px] py-[18px] text-[22px]">JavaScript. Профессиональная разработка веб-интерфейсов</div>--}}
 			</div>
 		</div>
 	</section>
