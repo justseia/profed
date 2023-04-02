@@ -6,9 +6,9 @@
 		<div class="mx-auto w-[1080px] py-[45px]">
 			<div class="mb-[45px]">
 				<nav class="flex w-fit text-[22px]">
-					<a href="" class="profession-link border border-black px-[74px] py-[7px] text-black active">ВУЗ</a>
-					<a href="" class="profession-link border border-black px-[74px] py-[7px] text-black">Колледжи</a>
-					<a href="" class="profession-link border border-black px-[74px] py-[7px] text-black">Курсы</a>
+					<div class="profession-link border border-black px-[74px] py-[7px] text-black active">ВУЗ</div>
+					<div class="profession-link border border-black px-[74px] py-[7px] text-black">Колледжи</div>
+					<div class="profession-link border border-black px-[74px] py-[7px] text-black">Курсы</div>
 				</nav>
 				<hr class="mt-[-1px] border-0 border-b border-black"/>
 			</div>

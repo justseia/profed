@@ -20,10 +20,10 @@
 							<a href="#" class="border-b border-[#848484] text-[13px] text-[#848484]">Редактировать профиль</a>
 						</div>
 						<div class="grid grid-cols-1 gap-[22px] text-[14px]">
-							<a href="" class="profile-link active">Расписание занятий</a>
-							<a href="" class="profile-link">Избранное</a>
-							<a href="" class="profile-link">Материалы</a>
-							<a href="" class="profile-link">Мои курсы</a>
+							<div class="profile-link active">Расписание занятий</div>
+							<div class="profile-link">Избранное</div>
+							<div class="profile-link">Материалы</div>
+							<div class="profile-link">Мои курсы</div>
 						</div>
 					</div>
 					<div class="col-span-2 h-fit flex-col rounded-[10px] border border-black p-[25px]">
