@@ -9,30 +9,50 @@
 					<nav class="mb-[22px]">
 						<ul class="flex flex-col gap-[10px]">
 								<li>
-									<input type="radio"/>
+									<input type="radio" name="A"/>
 									<span class="ml-[10px]">{{ json_decode($test->body)->body[0] }}</span>
 								</li>
 								<li>
-									<input type="radio"/>
+									<input type="radio" name="B"/>
 									<span class="ml-[10px]">{{ json_decode($test->body)->body[1] }}</span>
 								</li>
 								<li>
-									<input type="radio"/>
+									<input type="radio" name="C"/>
 									<span class="ml-[10px]">{{ json_decode($test->body)->body[2] }}</span>
 								</li>
 								<li>
-									<input type="radio"/>
+									<input type="radio" name="D"/>
 									<span class="ml-[10px]">{{ json_decode($test->body)->body[3] }}</span>
 								</li>
 						</ul>
 					</nav>
-					<input type="text" placeholder="Написать свой вариант" class="w-2/3 border-b border-black bg-transparent px-[8px] py-[4px] outline-none"/>
 				</div>
 			</div>
 		@endforeach
 		<div class="flex justify-between">
-			<a href="#" class="flex items-center border border-black px-[40px] py-[20px] text-[16px] font-semibold">Назад</a>
-			<a href="#" class="flex items-center bg-[#4ABA84] px-[40px] py-[20px] text-[16px] font-semibold text-white">Следующий вопрос</a>
+{{--			<a href="" class="previous-link flex items-center border border-black px-[40px] py-[20px] text-[16px] font-semibold">Назад</a>--}}
+			<a href="{{ route('test.result') }}" class="flex items-center bg-[#4ABA84] px-[40px] py-[20px] text-[16px] font-semibold text-white">Результат</a>
 		</div>
 	</div>
+
+	<style>
+        .active {
+            color: #FF5757;
+        }
+	</style>
+
+	<script>
+        const professionLink = document.querySelectorAll('.profile-link')
+        const professionTab = document.querySelectorAll('.profile-tab')
+        for (let i = 0; i < professionLink.length; i++) {
+            professionLink[i].addEventListener('click', function () {
+                for (let j = 0; j < professionLink.length; j++) {
+                    professionLink[j].classList.remove('active')
+                    professionTab[j].classList.replace('block', 'hidden')
+                }
+                this.classList.add('active')
+                professionTab[i].classList.replace('hidden', 'block')
+            })
+        }
+	</script>
 @endsection

@@ -28,6 +28,7 @@ return new class extends Migration {
             $table->string('education')->nullable(true);
             $table->string('specialization')->nullable(true);
             $table->string('certificate')->nullable(true);
+            $table->integer('test')->default(false);
             $table->integer('type');
             $table->string('email')->unique();
             $table->string('number')->unique();

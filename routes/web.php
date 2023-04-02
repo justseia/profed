@@ -18,6 +18,7 @@ Route::get('/', \App\Http\Controllers\HomeController::class)->name('home.index')
 
 Route::get('/test', \App\Http\Controllers\Test\IndexController::class)->name('test.index');
 Route::post('/test', \App\Http\Controllers\Test\StoreController::class)->name('test.store');
+Route::get('/test/result', \App\Http\Controllers\Test\ResultController::class)->name('test.result');
 
 Route::get('/professions', \App\Http\Controllers\Profession\IndexController::class)->name('profession.index');
 Route::get('/professions/information/{profession}', \App\Http\Controllers\Profession\ShowController::class)->name('profession.show');

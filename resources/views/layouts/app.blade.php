@@ -7,7 +7,7 @@
 	<title>{{ config('app.name') }}</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 {{--	@vite('resources/css/app.css')--}}
-	<link rel="stylesheet" href="{{ asset('build/assets/app-f7d8e4db.css') }}">
+	<link rel="stylesheet" href="{{ asset('build/assets/app-2d2501a8.css') }}">
 	<script src="{{ asset('build/assets/app-4ed993c7.js') }}"></script>
 </head>
 <body>
