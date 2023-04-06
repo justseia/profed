@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	{{--	<x-welcome-section/>--}}
+		<x-welcome-section/>
 	{{--	@if(!auth()->user() || !auth()->user()->test)--}}
 	{{--		<x-index-hidden-first-section/>--}}
 	{{--		<x-index-hidden-second-section/>--}}
