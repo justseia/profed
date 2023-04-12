@@ -5,26 +5,32 @@
 		<div class="mx-auto w-[1080px] py-[45px]">
 			<h3 class="mb-[40px] text-[26px] font-medium">Выберите тариф</h3>
 			<div class="mb-[45px] grid grid-cols-3 gap-[10px]">
-				<div class="rounded-[10px] p-[20px] bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('assets/img/price.png') }})">
-					<div class="mb-[10px] text-[36px] font-bold text-white">Тариф 1</div>
-					<ul class="mb-[90px] flex flex-col gap-[14px] text-white">
-						<li>Вводный курс</li>
-						<li>
-							3 Гайда:
-							<ul class="mt-[4px] flex flex-col gap-[6px] pl-[26px]">
-								<li>Обзор профессий</li>
-								<li>Как выбрать своё русло?</li>
-								<li>Жизнь после обучения</li>
-							</ul>
-						</li>
-						<li>1 ознакомительное видео</li>
-						<li>Отсутствует проверка<br/>домашних работ</li>
-					</ul>
-					<div class="flex h-[40px] items-center justify-center text-center text-[18px] text-white">10 000 тенге</div>
-					<div>
-						<a href="{{ route('course.buy', $course) }}" class="flex h-[48px] w-full items-center justify-center rounded-[6px] bg-[#E74D69] text-[16px] font-medium text-white">Продолжить покупку</a>
+				@foreach($tarifs as $tarif)
+					<div class="rounded-[10px] p-[20px] bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('assets/img/price.png') }})">
+						<div class="mb-[10px] text-[36px] font-bold text-white">{{ $tarif->name }}</div>
+						<ul class="mb-[90px] flex flex-col gap-[14px] text-white">
+							<li>
+								3 Гайда:
+								<ul class="mt-[4px] flex flex-col gap-[6px] pl-[26px]">
+									@foreach(json_decode($tarif->body) as $data)
+										@foreach($data->data as $item)
+											<li>{{ $item }}</li>
+										@endforeach
+									@endforeach
+								</ul>
+							</li>
+							@foreach(json_decode($tarif->body) as $title)
+								@foreach($title->title as $item)
+									<li>{{ $item }}</li>
+								@endforeach
+							@endforeach
+						</ul>
+						<div class="flex h-[40px] items-center justify-center text-center text-[18px] text-white">{{ $tarif->cost }}</div>
+						<div>
+							<a href="{{ route('course.buy', $course) }}" class="flex h-[48px] w-full items-center justify-center rounded-[6px] bg-[#E74D69] text-[16px] font-medium text-white">Продолжить покупку</a>
+						</div>
 					</div>
-				</div>
+				@endforeach
 			</div>
 			<div class="grid grid-cols-3 gap-[10px]">
 				<div class="flex justify-between rounded-[10px] border border-black px-[30px] py-[18px]">

@@ -14,6 +14,10 @@
 				<span class="text-[16px]">Школьник</span>
 			</div>
 			<div class="flex items-center">
+				<input name="type" type="radio" value="3" class="mr-[10px] h-[18px] w-[18px] cursor-pointer appearance-none border border-[#ACACAC] checked:bg-gray-400 focus:outline-none" />
+				<span class="text-[16px]">Родитель</span>
+			</div>
+			<div class="flex items-center">
 				<input name="type" type="radio" value="2" class="mr-[10px] h-[18px] w-[18px] cursor-pointer appearance-none border border-[#ACACAC] checked:bg-gray-400 focus:outline-none" />
 				<span class="text-[16px]">Эксперт</span>
 			</div>
