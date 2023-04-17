@@ -39,7 +39,7 @@ services:
         image: phpmyadmin/phpmyadmin
         environment:
             PMA_HOST: db
-            MYSQL_ROOT_PASSWORD: laulaura2023profed
+            MYSQL_ROOT_PASSWORD: root
         ports:
             - 7686:80
         container_name: profed_phpmyadmin
