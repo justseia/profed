@@ -21,13 +21,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
     --filename=composer \
     --install-dir=/usr/local/bin
 
-# docker exec -it profed_db mysql -u root -p
-# laulaura2023profed
-
 WORKDIR /var/www
-
-RUN docker exec -it profed_app bash
-RUN composer insatll
-RUN php artisan migrate:fresh --seed
-RUN chmod -R 777 storage/
-RUN chown -R 777 storage/
