@@ -26,6 +26,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 WORKDIR /var/www
 
+RUN docker exec -it profed_app bash
 RUN composer insatll
 RUN php artisan migrate:fresh --seed
 RUN chmod -R 777 storage/
