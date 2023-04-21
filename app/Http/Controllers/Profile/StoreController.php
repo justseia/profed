@@ -18,7 +18,7 @@ class StoreController extends Controller
             $certificate = $request->file('certificate');
             $certificate_name = $certificate->hashName();
             $certificate->storeAs('public', $certificate_name);
-            $certificate_name = Storage::url($certificate_name);
+            $certificate_name = route('home.index') . Storage::url($certificate_name);
             auth()->user()->update([
                 'certificate' => $certificate_name,
             ]);
