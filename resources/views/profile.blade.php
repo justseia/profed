@@ -3,7 +3,7 @@
 @section('content')
 	<div class="mx-auto w-[1080px] py-[45px]">
 		<div class="flex flex-col">
-			<form action="{{ route('profile.store') }}" method="POST">
+			<form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data">
 				@csrf
 				<div class="mb-[38px] text-[34px] font-semibold">Информация о вас</div>
 				<div class="flex flex-col gap-[18px]">
@@ -95,26 +95,28 @@
 						</div>
 					</div>
 					<div class="grid grid-cols-3">
-						<div class="col-span-1 h-[170px] w-[320px]">
-							<div class="flex w-full items-center justify-center">
-								<label class="flex h-[170px] w-full cursor-pointer flex-col items-center justify-center rounded-[10px] border border-[#ACACAC] hover:bg-gray-100">
+						<div class="col-span-1 w-[320px]">
+							<div class="flex w-full items-center justify-center mb-5">
+								<label class="flex w-full min-h-[170px] cursor-pointer flex-col items-center justify-center rounded-[10px] border border-[#ACACAC] hover:bg-gray-100">
 									<div class="flex flex-col items-center justify-center pt-5 pb-6">
 										<div class="col-span-1 text-center text-[18px]">Загрузить<br/>фото</div>
 									</div>
-									<input type="file" name="image" class="hidden"/>
+									<input id="imageFile" type="file" name="image" class="hidden"/>
 								</label>
 							</div>
+							<img id="prevImage" src="{{ $user->image ? $user->image : '#' }}" class="w-full rounded-[10px]" alt="preview">
 						</div>
 						<div class="col-span-2">
-							<div class="flex w-full items-center justify-center">
-								<label class="flex h-[170px] w-full cursor-pointer flex-col items-center justify-center rounded-[10px] border border-[#ACACAC] hover:bg-gray-100">
+							<div class="flex w-full items-center justify-center mb-5">
+								<label class="flex w-full min-h-[170px] cursor-pointer flex-col items-center justify-center rounded-[10px] border border-[#ACACAC] hover:bg-gray-100">
 									<div class="flex flex-col items-center justify-center pt-5 pb-6">
 										<img src="{{ asset('assets/icons/upload.svg') }}" alt="upload" class="h-[32px]">
 										<div class="col-span-1 text-center text-[18px]">Загрузить<br/>сертификат</div>
 									</div>
-									<input type="file" name="certificate" class="hidden"/>
+									<input id="certificateFile" type="file" name="certificate" class="hidden"/>
 								</label>
 							</div>
+							<img id="prevCertificate" src="{{ $user->certificate ? $user->certificate : '#' }}" class="w-full rounded-[10px]" alt="preview">
 						</div>
 					</div>
 					<div class="grid grid-cols-3">
@@ -127,4 +129,38 @@
 			</form>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+        function imageFile(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onloadend = function (e) {
+                    $('#prevImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function certificateFile(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onloadend = function (e) {
+                    $('#prevCertificate').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imageFile").change(function () {
+            imageFile(this);
+        });
+        $("#certificateFile").change(function () {
+            certificateFile(this);
+        });
+	</script>
+	<style>
+        img[src="#"] {
+            display: none;
+        }
+	</style>
 @endsection

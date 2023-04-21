@@ -5,13 +5,36 @@ namespace App\Http\Controllers\Profile;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $user = User::where('id', auth()->user()->id)->first();
-        $user->update([
+        $image_name = null;
+        $certificate_name = null;
+
+        if ($request->certificate) {
+            $certificate = $request->file('certificate');
+            $certificate_name = $certificate->hashName();
+            $certificate->storeAs('public', $certificate_name);
+            $certificate_name = Storage::url($certificate_name);
+            auth()->user()->update([
+                'certificate' => $certificate_name,
+            ]);
+        }
+
+        if ($request->image) {
+            $image = $request->file('image');
+            $image_name = $image->hashName();
+            $image->storeAs('public', $image_name);
+            $image_name = route('home.index') . Storage::url($image_name);
+            auth()->user()->update([
+                'image' => $image_name,
+            ]);
+        }
+
+        auth()->user()->update([
             'full_name' => $request->full_name,
             'birthday_day' => $request->birthday_day,
             'birthday_month' => $request->birthday_month,
