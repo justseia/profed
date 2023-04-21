@@ -1,5 +1,5 @@
 <div class="flex flex-col justify-between rounded-[6px] bg-cover bg-center bg-no-repeat" style="background-image: url({{ $profession->image }})">
-	<div class="rounded-[6px] bg-black bg-opacity-40 p-[18px]">
+	<div class="rounded-[6px] h-full bg-black bg-opacity-40 p-[18px]">
 		<div>
 			<div class="mb-[10px] text-[24px] font-bold text-white">{{ $profession->name }}</div>
 			<div class="mb-[10px] text-[18px] text-white line-clamp-3">{{ $profession->body }}</div>
